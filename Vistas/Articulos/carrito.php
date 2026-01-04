@@ -8,6 +8,14 @@ include_once __DIR__ . '/../General/header.php';
         <h2 class="store-title">CARGA DE SUMINISTROS</h2>
     </div>
 
+    <?php if (isset($_GET['mensaje']) || isset($mensaje)): ?>
+        <div class="w3-panel w3-green w3-display-container w3-round" style="max-width: 800px; margin: 0 auto 20px auto;">
+            <span onclick="this.parentElement.style.display='none'"
+            class="w3-button w3-large w3-display-topright">&times;</span>
+            <p><?php echo htmlspecialchars($_GET['mensaje'] ?? $mensaje ?? 'Acción realizada'); ?></p>
+        </div>
+    <?php endif; ?>
+
     <?php if (empty($productos_carrito)): ?>
         <div class="card">
             <p>Tu carrito está vacío</p>
@@ -18,7 +26,6 @@ include_once __DIR__ . '/../General/header.php';
     <div class="card" style="text-align: left;"> 
         
         <div class="w3-responsive">
-            
             <table class="w3-table" style="width: 100%; border-collapse: collapse; color: #e0e0e0; min-width: 600px;">
                 <thead>
                     <tr style="border-bottom: 2px solid #00ffff; text-align: left;">
