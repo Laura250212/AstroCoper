@@ -224,6 +224,9 @@ try {
         case "imgDia":
             $API->imagenDia();
             break;
+        case "verMapa":
+            $API->VerMapa();
+            break;
 
         default:
             $error->error404();
