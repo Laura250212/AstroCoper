@@ -38,6 +38,7 @@ $lang_code = isset($_GET['lang']) ? htmlspecialchars($_GET['lang']) : 'es';
                 <li><a href="<?php echo RUTA_BASE; ?>/index.php?action=mostrarPrincipal">Inicio</a></li>
                 <li><a href="<?php echo RUTA_BASE; ?>/index.php?action=foro">Foro</a></li>
                 <li><a href="<?php echo RUTA_BASE; ?>/index.php?action=constelaciones">Constelaciones</a></li>
+                <li><a href="<?php echo RUTA_BASE; ?>/index.php?action=verMapa">Mapa</a></li>
                 <li><a href="<?php echo RUTA_BASE; ?>/index.php?action=imgDia">Imagen del día</a></li>
                 <li><a href="<?php echo RUTA_BASE; ?>/index.php?action=verTienda">Tienda</a></li>
             </ul>
