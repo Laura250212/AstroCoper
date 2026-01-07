@@ -14,7 +14,14 @@ $lang_code = isset($_GET['lang']) ? htmlspecialchars($_GET['lang']) : 'es';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($page_title); ?></title>
     
+    <style>
+        html, body { background-color: #000000; margin: 0; padding: 0; }
+    </style>
+
     <link rel="stylesheet" href="<?php echo RUTA_BASE; ?>/Vistas/General/css/estilos.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+    <link rel="preload" as="image" href="<?php echo RUTA_BASE; ?>/IMGS/logo.png">
     
 </head>
 <body>
@@ -25,12 +32,16 @@ $lang_code = isset($_GET['lang']) ? htmlspecialchars($_GET['lang']) : 'es';
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
 <header>
     <div class="header-container">
         <h1 class="logo">
-            <a href="<?php echo RUTA_BASE; ?>/index.php?action=mostrarPrincipal" style="text-decoration:none; color:inherit;">AstroCoper</a>
+            <a href="<?php echo RUTA_BASE; ?>/index.php?action=mostrarPrincipal" style="text-decoration:none;">
+            <img src="<?php echo RUTA_BASE; ?>/IMGS/logo.png" 
+     alt="Logo AstroCoper" 
+     width="518" 
+     height="82"
+     style="height: 40px; width: auto; vertical-align: middle;">
+            </a>
         </h1>
 
         <nav class="nav-links">
