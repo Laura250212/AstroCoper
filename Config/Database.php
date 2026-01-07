@@ -37,7 +37,7 @@ class Database {
             $this->conn->exec("set names utf8mb4");
             
         } catch(PDOException $exception) {
-            echo "Error de conexión: " . $exception->getMessage();
+            throw new Exception("Error crítico de conexión a Base de Datos");
         }
         
         return $this->conn;
