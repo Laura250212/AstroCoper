@@ -110,7 +110,6 @@ class Articulos {
             $this->precio = htmlspecialchars(strip_tags($this->precio));
             $this->categoria = htmlspecialchars(strip_tags($this->categoria));
             $this->stock = htmlspecialchars(strip_tags($this->stock));
-            //id no necesita strip_tags, pero mejor prevenir cualquier cosa
             $this->id = htmlspecialchars(strip_tags($this->id)); 
             
             $stmt->bindParam(':nombre', $this->nombre);
@@ -167,12 +166,13 @@ class Articulos {
         }
     }
 
-    public function crearPedido($usuario_id, $total) {
+    public function crearPedido($usuario_id, $total, $estado = 'pagado') {
         try {
-            $query = "INSERT INTO pedidos (usuario_id, total, fecha, estado) VALUES (:uid, :total, NOW(), 'pagado')";
+            $query = "INSERT INTO pedidos (usuario_id, total, fecha, estado) VALUES (:uid, :total, NOW(), :estado)";
             $stmt = $this->conn->prepare($query);
             $stmt->bindParam(":uid", $usuario_id);
             $stmt->bindParam(":total", $total);
+            $stmt->bindParam(":estado", $estado);
             
             if ($stmt->execute()) {
                 return $this->conn->lastInsertId();
@@ -212,8 +212,6 @@ class Articulos {
             $stmt->bindParam(":id", $producto_id);
             
             if ($stmt->execute()) {
-                //Si rowCount > 0 significa que había stock y se restó
-                //Si es 0, es que la condición (stock >= cant) falló
                 return $stmt->rowCount() > 0;
             }
             return false;
@@ -261,6 +259,19 @@ class Articulos {
             return $stmt;
         } catch (PDOException $e) {
             return null;
+        }
+    }
+
+    //Función para actualizar estado (Admin)
+    public function actualizarEstadoPedido($pedido_id, $nuevo_estado) {
+        try {
+            $query = "UPDATE pedidos SET estado = :estado WHERE id = :id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(":estado", $nuevo_estado);
+            $stmt->bindParam(":id", $pedido_id);
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            return false;
         }
     }
 }
