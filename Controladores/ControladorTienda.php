@@ -148,7 +148,7 @@ class ControladorTienda {
             $this->db->beginTransaction();
 
             //Crear Pedido
-            $pedido_id = $this->productoModel->crearPedido($_SESSION['usuario_id'], $total_pedido);
+            $pedido_id = $this->productoModel->crearPedido($_SESSION['usuario_id'], $total_pedido, 'pagado');
 
             if (!$pedido_id) {
                 throw new Exception("Error al inicializar el pedido.");

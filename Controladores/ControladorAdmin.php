@@ -262,5 +262,19 @@ class ControladorAdmin {
             }
         }
     }
+
+    //Acción para cambiar estado
+    public function cambiarEstado() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pedido_id']) && isset($_POST['nuevo_estado'])) {
+            
+            $id = $_POST['pedido_id'];
+            $estado = $_POST['nuevo_estado'];
+            
+            $this->productoModel->actualizarEstadoPedido($id, $estado);
+            
+            header("Location: " . RUTA_BASE . "/index.php?action=verVentas&msg=editado");
+            exit();
+        }
+    }
 }
 ?>
