@@ -31,16 +31,16 @@ include_once __DIR__ . '/../General/header.php';
                 <input type="file" name="imagen" accept="image/*" required style="border: none; margin-top: 10px;">
             </div>
 
-            <div style="display: flex; gap: 20px; margin-top: 30px;">
-                <button type="submit" class="buttons" style="flex: 2; border-color: #ffd700; color: #ffd700;">
-                    GUARDAR EN LA GUÍA
-                </button>
-                
-                <a href="<?php echo RUTA_BASE; ?>/index.php?action=panelAdmin" class="buttons" style="flex: 1; border-color: #ff4444; color: #ff4444; text-align: center;">
-                    Cancelar
-                </a>
-            </div>
+            <button type="submit" class="buttons" style="width: 100%; margin-top: 20px; border-color: #ffd700; color: #ffd700;">
+                GUARDAR EN LA GUÍA
+            </button>
+            
         </form>
+
+        <br>
+        <a href="<?php echo RUTA_BASE; ?>/index.php?action=panelAdmin" class="buttons" style="display:block; text-align: center; border-color: #ff4444; color: #ff4444;">
+            Cancelar
+        </a>
     </div>
 </div>
 

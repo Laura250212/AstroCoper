@@ -8,7 +8,7 @@ include_once __DIR__ . '/../General/header.php';
 <div class="store-container">
     <div class="card" style="max-width: 600px;">
         <h2 style="color: #00ff00; margin-bottom: 30px; text-shadow: 0 0 10px #00ff00;">
-            REGISTRAR NUEVO ÍTEM
+            REGISTRAR NUEVO PRODUCTO
         </h2>
 
         <form action="<?php echo RUTA_BASE; ?>/index.php" method="POST" enctype="multipart/form-data" class="auth-form">
@@ -53,16 +53,16 @@ include_once __DIR__ . '/../General/header.php';
                 <input type="file" name="imagen" accept="image/*" required style="border: none; margin-top: 10px;">
             </div>
 
-            <div style="display: flex; gap: 20px; margin-top: 30px;">
-                <button type="submit" class="buttons" style="flex: 2; border-color: #00ff00; color: #00ff00;">
-                    GUARDAR EN ALMACÉN
-                </button>
-                
-                <a href="<?php echo RUTA_BASE; ?>/index.php?action=panelAdmin" class="buttons" style="flex: 1; border-color: #ff4444; color: #ff4444; text-align: center;">
-                    Cancelar
-                </a>
-            </div>
+            <button type="submit" class="buttons" style="width: 100%; margin-top: 20px; border-color: #ff00ff; color: #ff00ff;">
+                GUARDAR EN ALMACÉN
+            </button>
+            
         </form>
+
+        <br>
+        <a href="<?php echo RUTA_BASE; ?>/index.php?action=panelAdmin" class="buttons" style="display:block; text-align: center; border-color: #ff4444; color: #ff4444;">
+            Cancelar
+        </a>
     </div>
 </div>
 
