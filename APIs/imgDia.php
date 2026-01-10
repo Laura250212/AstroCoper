@@ -54,7 +54,7 @@ if (!$datos) {
 }
 
 //4.APOD predeterminado
-if (file_exists(__DIR__ . '/../IMGS/apod_resplado.png')) {
+if (!$datos && file_exists(__DIR__ . '/../IMGS/apod_resplado.png')) {
   $datos = [
       'title' => 'Jupiter with the Great Red Spot',
       'explanation' => ' Jupiter reaches its 2026 opposition today. That puts our Solar System s most massive planet opposite the Sun and near its closest and brightest for viewing from planet Earth. In fact, captured only 3 days ago this sharp telescopic snapshot reveals excellent details of the ruling gas giant s swirling cloudtops, in light zones and dark belts girdling the rapidly rotating outer planet. Jupiter s famous, persistent anticyclonic vortex, known as the Great Red Spot, is south of the equator at the lower right. But two smaller red spots are also visible, one near the top in the northernmost zone, and one close to Jupiter s south pole. And while Jupiter s Great Red Spot is known to be shrinking, it s still about the size of the Earth itself. ',
@@ -166,14 +166,14 @@ $page_title = $t['titulo_web'];
 include __DIR__ . '/../Vistas/General/header.php';
 ?>
 
-  <div class="language-selector" style="text-align: right; padding: 15px; max-width: 1200px; margin: 0 auto;">
-    <button class="lang-btn <?php echo $idioma === 'es' ? 'active' : ''; ?>" onclick="cambiarIdioma('es')">ES</button>
-    <button class="lang-btn <?php echo $idioma === 'en' ? 'active' : ''; ?>" onclick="cambiarIdioma('en')">EN</button>
-    <button class="lang-btn <?php echo $idioma === 'fr' ? 'active' : ''; ?>" onclick="cambiarIdioma('fr')">FR</button>
-  </div>
-
   <div class="main-content">
     <div class="nasa-apod-container">
+        
+        <div class="language-selector-integrated" style="display: flex; justify-content: flex-end; gap: 10px; margin-bottom: 20px;">
+            <a href="?action=imgDia&lang=es" class="lang-btn <?php echo $idioma === 'es' ? 'active' : ''; ?>">ES</a>
+            <a href="?action=imgDia&lang=en" class="lang-btn <?php echo $idioma === 'en' ? 'active' : ''; ?>">EN</a>
+            <a href="?action=imgDia&lang=fr" class="lang-btn <?php echo $idioma === 'fr' ? 'active' : ''; ?>">FR</a>
+        </div>
         
       <?php if (isset($datos['es_fallback_total'])): ?>
         <div class="fallback-notice" style="background: rgba(255, 0, 0, 0.2); padding: 10px; border-radius: 5px; margin-bottom: 20px; border: 1px solid red; color: #ffaaaa;">
@@ -208,18 +208,6 @@ include __DIR__ . '/../Vistas/General/header.php';
 
     </div>
   </div>
-
-  <script>
-    function cambiarIdioma(lang) {
-      const url = new URL(window.location.href);
-      url.searchParams.set('lang', lang);
-      //Asegurar que no se pierda la acción 'imgDia' al cambiar idioma
-      if (!url.searchParams.has('action')) {
-          url.searchParams.set('action', 'imgDia');
-      }
-      window.location.href = url.toString();
-    }
-  </script>
 
 <?php 
 include __DIR__ . '/../Vistas/General/footer.php'; 
