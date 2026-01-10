@@ -44,7 +44,7 @@ if (!$datos) {
 
 //3.Fecha pasada
 if (!$datos) {
-    $fechaRespaldo = "2005-02-05"; 
+    $fechaRespaldo = "2025-02-05"; 
     $urlRespaldo = "https://api.nasa.gov/planetary/apod?api_key=" . $apiKey . "&date=" . $fechaRespaldo;
     $datos = realizarPeticionCurl($urlRespaldo);
     
@@ -53,7 +53,19 @@ if (!$datos) {
     }
 }
 
-//4.Imagen de local
+//4.APOD predeterminado
+if (file_exists(__DIR__ . '/../IMGS/apod_resplado.png')) {
+  $datos = [
+      'title' => 'Jupiter with the Great Red Spot',
+      'explanation' => ' Jupiter reaches its 2026 opposition today. That puts our Solar System s most massive planet opposite the Sun and near its closest and brightest for viewing from planet Earth. In fact, captured only 3 days ago this sharp telescopic snapshot reveals excellent details of the ruling gas giant s swirling cloudtops, in light zones and dark belts girdling the rapidly rotating outer planet. Jupiter s famous, persistent anticyclonic vortex, known as the Great Red Spot, is south of the equator at the lower right. But two smaller red spots are also visible, one near the top in the northernmost zone, and one close to Jupiter s south pole. And while Jupiter s Great Red Spot is known to be shrinking, it s still about the size of the Earth itself. ',
+      'url' => 'IMGS/apod_resplado.png',
+      'media_type' => 'image',
+      'date' => date('Y-m-d'),
+      'copyright' => 'NASA / Backup System'
+  ];
+}
+
+//5.Imagen de local
 if (!$datos || !isset($datos['title']) || !isset($datos['url'])) {
     $datos = [
         'title' => 'Comunicación Interrumpida',
