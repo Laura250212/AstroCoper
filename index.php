@@ -142,6 +142,10 @@ try {
             $admin = new ControladorAdmin(); 
             $admin->verVentas();
             break;
+        case 'cambiarEstado':
+            $admin = new ControladorAdmin(); 
+            $admin->cambiarEstado();
+            break;
         
         //Productos
         case "crearProducto":
