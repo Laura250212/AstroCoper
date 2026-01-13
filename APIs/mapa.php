@@ -10,8 +10,9 @@ include_once __DIR__ . '/../Vistas/General/header.php';
 
 <div class="store-container" style="text-align: center;">
     <h2 class="store-title">EXPLORADOR DEL COSMOS</h2>
-    <p style="color: #e0e0e0;">Explora el universo real. Usa el ratón para moverte y la rueda para hacer zoom. Por favor, haz las búsquedas en <b>Inglés</b> o <b>Latín</b></p>
-    
+    <p style="color: #e0e0e0;">Explora el universo real. Usa el ratón para moverte y la rueda para hacer zoom.</p>
+    <p style="color: #e0e0e0;">Por favor, haz las búsquedas en <b>Inglés</b>, <b>Latín</b> o usa los objetos del <span title="Lista de 110 objetos astronómicos creada por Charles Messier" style="cursor: help; border-bottom: 1px dotted #ccc;"><b>Catálogo Messier</b></span>.</p>
+
     <div id="mission-panel" style="background: rgba(0, 0, 0, 0.8); color: white; padding: 15px; border-radius: 10px; border: 1px solid #00d2ff; margin-bottom: 10px; font-family: sans-serif;">
     <h3 style="margin-top: 0; color: #00d2ff;">Misión de Exploración</h3>
     <p>Objetivo: <strong id="mission-target" style="font-size: 1.2em; color: #ffeb3b;">Cargando misión...</strong></p>

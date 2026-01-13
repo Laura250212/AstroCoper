@@ -196,6 +196,12 @@ include __DIR__ . '/../Vistas/General/header.php';
         
       <h1 class='nasa-apod-title'><?php echo htmlspecialchars($datos['title']); ?></h1>
       <p class='nasa-apod-date'><?php echo htmlspecialchars($datos['date']); ?></p>
+
+      <?php if (isset($datos['copyright'])): ?>
+          <p class='nasa-apod-copyright' style="font-size: 0.9em; color: #aaa; margin-top: -10px; margin-bottom: 15px;">
+              <strong>Credit & Copyright:</strong> <?php echo htmlspecialchars($datos['copyright']); ?>
+          </p>
+      <?php endif; ?>
       <p class='nasa-apod-explanation'><?php echo nl2br(htmlspecialchars($datos['explanation'])); ?></p>
         
       <div class='nasa-apod-media'>
